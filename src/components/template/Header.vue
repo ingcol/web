@@ -9,7 +9,7 @@
 			<b-collapse id="nav-collapse" is-nav>
 				<b-navbar-nav>
 					<b-nav-item href="#" ><router-link to="/" class="text-white">Inicio</router-link> </b-nav-item>
-					<b-nav-item href="#"><router-link to="/about" class="text-white" >Solicitar turno</router-link>
+					<b-nav-item href="#"><router-link to="/empresas" class="text-white" >Solicitar turno</router-link>
 					</b-nav-item>
 					<b-nav-item href="#"><router-link to="/about" class="text-white" >Mis turnos</router-link>
 					</b-nav-item>

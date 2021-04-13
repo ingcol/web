@@ -3,6 +3,7 @@ import App from './App.vue'
 import './registerServiceWorker'
 import router from './router'
 import store from './store'
+import axios from 'axios';
 
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
 

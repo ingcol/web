@@ -9,10 +9,12 @@
 			<b-collapse id="nav-collapse" is-nav>
 				<b-navbar-nav>
 					<b-nav-item href="#" ><router-link to="/" class="text-white">Inicio</router-link> </b-nav-item>
-					<b-nav-item href="#"><router-link to="/empresas" class="text-white" >Solicitar turno</router-link>
+					<b-nav-item href="#"><router-link to="/empresas" class="text-white" >Turnos</router-link>
 					</b-nav-item>
+					<!--
 					<b-nav-item href="#"><router-link to="/about" class="text-white" >Mis turnos</router-link>
 					</b-nav-item>
+				-->
 					
 				</b-navbar-nav>
 
@@ -26,15 +28,17 @@
 						<b-dropdown-item href="#">FA</b-dropdown-item>
 					</b-nav-item-dropdown>
 				-->
+				<!--
 
 				<b-nav-item-dropdown right class="text-white">
-					<!-- Using 'button-content' slot -->
+					
 					<template  #button-content>
 						<em class="text-white">Usuario</em>
 					</template>
 					<b-dropdown-item href="#">Perfil</b-dropdown-item>
 					<b-dropdown-item href="#">Salir</b-dropdown-item>
 				</b-nav-item-dropdown>
+			-->
 			</b-navbar-nav>
 		</b-collapse>
 	</b-navbar>

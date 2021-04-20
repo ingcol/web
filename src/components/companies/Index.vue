@@ -1,7 +1,15 @@
 <template>
 	
-	<div class="mt-3 p-2 bg-contanier">
-		<div class="container-fluid">
+	<div class="mt-3 p-2 pb-4 bg-contanier">
+		<div class="container-fluid" v-if="error404">
+			<b-card  class="border-0 shadow-sm mt-4 text-center">
+				<h3>  
+				Información no disponible</h3>
+				<router-link to="/" class="btn btn-warning text-white" ><b-icon icon="arrow-left"></b-icon> Volver</router-link>
+
+			</b-card>
+		</div>
+		<div class="container-fluid" v-else>
 			<b-card  class="border-0 shadow-sm mt-4">
 				<div class="text-center mb-4">
 					<div class="mb-4">
@@ -10,13 +18,14 @@
 					<input type="text" placeholder="Buscar..." class="mt-2 form-control search" v-model="search">
 				</div>
 				<ul class="list-group list-group-flush">
-					<a  v-for="item in filteredList" v-bind:key="item.id" :href="'metodo/'+item.id">
-					<li  class="list-group-item tetx-left border-bottom cursor">
+					
 					
 
+					<router-link v-for="item in filteredList" v-bind:key="item.id"  :to="'departamento/'+item.slug" class="list-group-item tetx-left border-bottom cursor text-dark">	{{item.nombreEmpresa}}  <b-icon  variant="warning" icon="plus-circle-fill" class="float-right"></b-icon></router-link>
 
-						{{item.nombreEmpresa}} <b-icon  variant="warning" icon="plus-circle-fill" class="float-right"></b-icon></li></a> 
-					
+
+
+
 				</ul>
 			</b-card>
 		</div>
@@ -29,14 +38,15 @@
 	export default {
 		created() {
 			this.getEmpresas();
-			
+
 		},
 		data() {
-			
+
 
 			return {
 				search:'',
 				empresas:[],
+				error404:false
 
 
 			}
@@ -48,8 +58,14 @@
 				const api = 'https://datos.mifila.co/empresaServicioTurno';
 				axios.get(api).then(response=>{
 					this.empresas = response.data;
-					console.log('datos:',response.data);
-				})
+
+				}).catch(errors => {
+
+					if (errors) {
+						this.error404=true
+					}
+
+				});
 
 			}
 
@@ -70,7 +86,7 @@
 
 	.search{
 
-		border-radius: 20px;
+		border-radius: 30px !important;
 
 	}
 	.bg-contanier{
@@ -78,7 +94,13 @@
 	}
 	.cursor{
 		cursor: pointer;
+		text-decoration: none !important;
+
+	}
+	.cursor:hover{
+		color: red !important
 	}
 	
-	
+
+
 </style>
